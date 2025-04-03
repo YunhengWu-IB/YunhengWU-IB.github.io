@@ -17,7 +17,11 @@ html {
 }
 
 body { 
-  font-family: Georgia, serif;
+  font-family:     Georgia, /* 英文 */
+    "Noto Serif SC", "Microsoft YaHei", "PingFang SC", "SimSun", /* 中文 */
+    "Noto Serif JP", "Hiragino Mincho ProN", "MS Mincho", /* 日文 */
+    "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", /* 韩文 */
+    serif;
   color: #000;
   background-color: #ffffff; 
   text-align:left; /* for IE */
