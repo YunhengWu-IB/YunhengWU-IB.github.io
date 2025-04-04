@@ -36,7 +36,7 @@ body {
   max-width: 960px;
 }
 body {
-  font-family: 'Roboto Mono', 'Courier New', monospace, Georgia, serif;
+  font-family: serif, 'Roboto Mono', 'Courier New', monospace, Georgia;
 }
 
 #layout-menu {
