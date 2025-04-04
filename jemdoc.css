@@ -18,7 +18,7 @@ html {
 
 body { 
   font-family:     Georgia, /* 英文 */
-    "MS PMincho","Meiryo","MS Mincho","Noto Serif JP","Hiragino Mincho Pro", "Yu Mincho", "Noto Serif JP",  /* 日文 */
+    "Noto Serif CJK JP", "Noto Serif CJK SC","MS PMincho","Meiryo","MS Mincho","Noto Serif JP","Hiragino Mincho Pro", "Yu Mincho", "Noto Serif JP",  /* 日文 */
     "Noto Serif SC", "Microsoft YaHei", "PingFang SC", "SimSun", /* 中文 */
     "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", /* 韩文 */
     serif;
