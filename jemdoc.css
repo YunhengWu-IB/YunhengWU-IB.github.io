@@ -35,6 +35,9 @@ body {
   padding-bottom: 30px;
   max-width: 960px;
 }
+body {
+  font-variant-numeric: tabular-nums;
+}
 
 #layout-menu {
 	background: #f6f6f6;
