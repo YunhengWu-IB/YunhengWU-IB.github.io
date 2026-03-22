@@ -704,3 +704,146 @@ table.imgtable, table.imgtable td {
 	}
 }
 
+/* —— Profile: stats strip & research keyword cloud (after About) —— */
+.section-subtitle {
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: #527bbd;
+	margin: 1.35rem 0 0.7rem 0;
+	padding: 0;
+	border: none;
+	box-shadow: none;
+	letter-spacing: 0.02em;
+	line-height: 1.25;
+}
+
+.profile-stats-heading {
+	margin-top: 0.4rem;
+}
+
+.profile-stats {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0.7rem;
+	margin: 0 0 0.25rem 0;
+	max-width: 100%;
+}
+
+.profile-stats__card {
+	background: #f4f6fa;
+	border: 1px solid #e4e8ef;
+	border-radius: 12px;
+	padding: 0.95rem 0.65rem;
+	text-align: center;
+}
+
+.profile-stats__value {
+	display: block;
+	font-size: clamp(1.55rem, 1.2rem + 1.2vw, 1.95rem);
+	font-weight: 700;
+	line-height: 1.05;
+	letter-spacing: -0.02em;
+	font-family: Georgia, "Noto Serif", serif;
+}
+
+.profile-stats__label {
+	display: block;
+	font-size: 0.76rem;
+	color: #4a4f58;
+	margin-top: 0.4rem;
+	letter-spacing: 0.04em;
+	line-height: 1.25;
+}
+
+.profile-stats__card--pubs .profile-stats__value {
+	color: #2957a7;
+}
+
+.profile-stats__card--conf .profile-stats__value {
+	color: #157a5c;
+}
+
+.profile-stats__card--journal .profile-stats__value {
+	color: #c45c1a;
+}
+
+.profile-stats__card--phd .profile-stats__value {
+	color: #7a5538;
+}
+
+.research-tags {
+	margin: 0 0 1.85rem 0;
+	padding: 1.05rem 1.1rem 1.15rem;
+	background: #fafbfc;
+	border: 1px solid #e2e6ed;
+	border-radius: 12px;
+}
+
+.research-tags__inner {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.42rem 0.48rem;
+	align-items: center;
+}
+
+.kw {
+	display: inline-block;
+	padding: 0.38em 0.82em;
+	border-radius: 999px;
+	font-size: 0.8rem;
+	font-weight: 500;
+	line-height: 1.35;
+	letter-spacing: 0.02em;
+}
+
+.kw--blue {
+	background: #e4ebf8;
+	color: #1e4a8c;
+}
+
+.kw--green {
+	background: #e2f0e8;
+	color: #145a3f;
+}
+
+.kw--violet {
+	background: #ece8f5;
+	color: #4b3d7a;
+}
+
+.kw--indigo {
+	background: #e8eaf5;
+	color: #343c7a;
+}
+
+.kw--coral {
+	background: #fceee8;
+	color: #9a3d28;
+}
+
+.kw--slate {
+	background: #eceef2;
+	color: #3d4450;
+}
+
+.kw--mint {
+	background: #e2f4ec;
+	color: #1d6b4a;
+}
+
+.kw--tan {
+	background: #f2ebe3;
+	color: #6b4f32;
+}
+
+.kw--rose {
+	background: #f8e8ef;
+	color: #8a3050;
+}
+
+@media (max-width: 600px) {
+	.profile-stats {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
