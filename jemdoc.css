@@ -13,30 +13,34 @@ body {
 }
 */
 html {
-  background-color: #eeeeee; 
+  background-color: #eeeeee;
+  -webkit-text-size-adjust: 100%;
 }
 
-body { 
-  font-family: Georgia, /* 英文 */
-    "Meiryo","MS Mincho","Noto Serif JP","Hiragino Mincho Pro", "Yu Mincho", "Noto Serif JP","Noto Serif CJK JP", "Noto Serif CJK SC","MS PMincho"  /* 日文 */
-    "Noto Serif SC", "Microsoft YaHei", "PingFang SC", "SimSun", /* 中文 */
-    "Noto Serif KR", "Apple SD Gothic Neo", "Malgun Gothic", /* 韩文 */
+body {
+  /* Latin: refined transitional serif stack; CJK: clear reading faces */
+  font-family:
+    "Iowan Old Style", "Palatino Linotype", Palatino, Charter, "Book Antiqua",
+    Georgia,
+    "Noto Serif", "Noto Serif SC", "Noto Serif JP", "Noto Serif KR",
+    "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", Meiryo,
+    "PingFang SC", "Microsoft YaHei", SimSun,
+    "Apple SD Gothic Neo", "Malgun Gothic",
     serif;
+  font-size: 17px;
+  font-weight: 400;
   color: #000;
-  background-color: #ffffff; 
-  text-align:left; /* for IE */
-  margin-top: 30px; 
-  margin-bottom: 30px;
+  background-color: #ffffff;
+  text-align: left;
+  margin-top: 28px;
+  margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
-  padding-left:  50px;
-  padding-right: 50px;
-  padding-top: 10px;
-  padding-bottom: 30px;
-  max-width: 960px;
-}
-body {
-  font-family: Georgia,serif, 'Roboto Mono', 'Courier New', monospace, Georgia;
+  padding: 16px clamp(24px, 4vw, 56px) 40px;
+  max-width: 920px;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 #layout-menu {
@@ -58,13 +62,27 @@ body {
 }
 
 #layout-content {
-	padding-top: 0.0em;
-	padding-left: 1.0em;
-	padding-right: 1.0em;
-    border: none;
-    background: white;
-    text-align: left;
-    vertical-align: top;
+	padding-top: 0;
+	padding-left: 0;
+	padding-right: 0;
+	border: none;
+	background: white;
+	text-align: left;
+	vertical-align: top;
+	position: relative;
+}
+
+/* Language links (first bar inside #layout-content) */
+#layout-content > div:first-child[style*="absolute"] {
+	font-size: 0.88rem;
+	letter-spacing: 0.02em;
+	line-height: 1.5;
+	padding: 6px 12px !important;
+	border-radius: 2px;
+}
+
+#layout-content > div:first-child[style*="absolute"] a {
+	margin: 0 0.15em;
 }
 
 #layout-menu a {
@@ -83,23 +101,29 @@ pre, tt {
 
 a, a > tt {
 	color: #224b8d;
-	text-decoration: none;
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+	text-underline-position: from-font;
 }
 
 a:hover {
-	border-bottom: 1px gray dotted;
+	text-decoration-thickness: 2px;
+	border-bottom: none;
 }
 
 #layout-menu a.current:link, #layout-menu a.current:visited {
 	color: #022b6d;
 	border-bottom: 1px gray solid;
 }
-#layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
+#layout-menu a:link, #layout-menu a:visited {
 	color: #527bbd;
 	text-decoration: none;
 }
 #layout-menu a:hover {
+	color: #527bbd;
 	text-decoration: none;
+	border-bottom: 1px gray dotted;
 }
 
 div.menu-category {
@@ -144,38 +168,47 @@ strong {
 
 h1, h2, h3 {
 	color: #527bbd;
-	margin-top: 0.7em;
-	margin-bottom: 0.5em;
-	padding-bottom: 0.2em;
-	line-height: 1.0;
-	padding-top: 0.5em;
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	margin-top: 0.85em;
+	margin-bottom: 0.55em;
+	padding-bottom: 0.28em;
+	line-height: 1.25;
+	padding-top: 0.45em;
 	border-bottom: 1px solid #aaaaaa;
 }
 
 h1 {
-	font-size: 165%;
-	padding-bottom: 0.3em;
+	font-size: clamp(1.55rem, 1.35rem + 1vw, 1.85rem);
+	padding-bottom: 0.35em;
 }
 
 h2 {
-	padding-top: 0.8em;
-	font-size: 125%;
+	padding-top: 1em;
+	font-size: 1.22rem;
 }
 
 h2 + h3 {
-    padding-top: 0.2em;
+	padding-top: 0.25em;
 }
 
 h3 {
-	font-size: 110%;
+	font-size: 1.08rem;
 	border-bottom: none;
+	font-weight: 600;
 }
 
 p {
-	margin-top: 0.0em;
-	margin-bottom: 0.8em;
+	margin-top: 0;
+	margin-bottom: 1em;
 	padding: 0;
-	line-height: 1.3;
+	line-height: inherit;
+}
+
+/* Justified intros stay comfortable */
+p[style*="justify"] {
+	hyphens: auto;
+	-webkit-hyphens: auto;
 }
 
 pre {
@@ -201,9 +234,10 @@ div#footer-text {
 }
 
 ul, ol, dl {
-	margin-top: 0.2em;
+	margin-top: 0.35em;
 	padding-top: 0;
-	margin-bottom: 0.8em;
+	margin-bottom: 1em;
+	padding-left: 1.15em;
 }
 
 dt {
@@ -229,11 +263,16 @@ ul {
 }
 
 p + ul, p + ol {
-	margin-top: -0.5em;
+	margin-top: -0.35em;
 }
 
 li {
-	margin-top:0.9em;
+	margin-top: 0.55em;
+	line-height: 1.6;
+}
+
+li::marker {
+	color: #527bbd;
 }
 
 ol {
@@ -242,7 +281,8 @@ ol {
 }
 
 li p, dd p {
-	margin-bottom: 0.3em;
+	margin-bottom: 0.45em;
+	line-height: 1.6;
 }
 
 
@@ -363,7 +403,26 @@ img.eqwl {
 }
 
 table + table {
-    margin-top: 1em;
+	margin-top: 1.35em;
+}
+
+/* Publication rows */
+#layout-content table tbody tr td {
+	line-height: 1.55;
+}
+
+papertitle {
+	display: block;
+	font-weight: 600;
+	font-size: 1.02em;
+	line-height: 1.4;
+	margin: 0 0 0.35em 0;
+	color: #000;
+}
+
+#layout-content table img {
+	border-radius: 2px;
+	vertical-align: middle;
 }
 
 tr.heading {
@@ -381,5 +440,10 @@ table.imgtable, table.imgtable td {
 }
 .number-font {
   font-family: 'Roboto Mono', 'Courier New', monospace;
+}
+
+::selection {
+	background: rgba(82, 123, 189, 0.2);
+	color: #000;
 }
 
