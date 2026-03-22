@@ -860,9 +860,11 @@ table.imgtable, table.imgtable td {
 .research-tags {
 	margin: 0 0 1.85rem 0;
 	padding: 1.1rem 1.15rem 1.2rem;
-	background: #ffffff;
-	border: 1px solid #e2e3e6;
+	background-color: #ffffff;
+	background-image: none;
+	border: 1px solid #e0e0e0;
 	border-radius: 14px;
+	box-shadow: none;
 }
 
 .research-tags__inner {
@@ -870,6 +872,25 @@ table.imgtable, table.imgtable td {
 	flex-wrap: wrap;
 	gap: 0.45rem 0.5rem;
 	align-items: center;
+	background-color: #ffffff;
+	background-image: none;
+}
+
+/* Other Publications — paper title links stay links but read as bold black headlines */
+.other-pubs-list a:link,
+.other-pubs-list a:visited {
+	color: #000000;
+	font-weight: 700;
+	text-decoration: underline;
+	text-underline-offset: 0.14em;
+	text-decoration-thickness: 1px;
+}
+
+.other-pubs-list a:hover,
+.other-pubs-list a:active,
+.other-pubs-list a:focus-visible {
+	color: #000000;
+	text-decoration: underline;
 }
 
 .kw {
