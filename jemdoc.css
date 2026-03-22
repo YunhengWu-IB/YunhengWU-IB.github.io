@@ -463,9 +463,9 @@ table + table {
 
 #layout-content table:has(div.three):hover {
 	box-shadow:
-		0 14px 40px rgba(82, 123, 189, 0.28),
-		0 6px 16px rgba(0, 0, 0, 0.1);
-	border-color: #8fa6cf;
+		0 16px 44px rgba(52, 88, 160, 0.42),
+		0 8px 22px rgba(0, 0, 0, 0.2);
+	border-color: #6b8cc4;
 	transform: translateY(-2px);
 }
 
@@ -476,12 +476,12 @@ table + table {
 
 /* Tighter vertical rhythm inside the text column — reads as one block */
 #layout-content table:has(div.three) td:last-child {
-	line-height: 1.36;
+	line-height: 1.24;
 }
 
 #layout-content table:has(div.three) td:last-child papertitle {
 	margin: 0 0 0.08em 0;
-	line-height: 1.3;
+	line-height: 1.22;
 }
 
 /* Venue line: keep inline with following text so no forced line break after </em> */
