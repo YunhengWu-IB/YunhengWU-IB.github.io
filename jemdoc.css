@@ -480,8 +480,11 @@ table + table {
 }
 
 #layout-content table:has(div.three) td:last-child papertitle {
-	margin: 0 0 0.08em 0;
-	line-height: 1.22;
+	margin: 0 0 0.12em 0;
+	line-height: 1.28;
+	/* Largest type in the cell: clearly above body (~17px), venue (~0.92rem), and link pills (~0.84rem) */
+	font-size: clamp(1.22rem, 1.06rem + 0.55vw, 1.42rem);
+	font-weight: 600;
 }
 
 /* Paper title as main PDF/venue link — not the pill style used for Code / Dataset */
@@ -530,6 +533,33 @@ table + table {
 	object-fit: contain;
 	border-radius: 6px;
 	vertical-align: middle;
+}
+
+/* BibTeX copy — matches link pills in publication cards */
+.bibtex-btn {
+	font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-size: 0.84rem;
+	font-weight: 500;
+	cursor: pointer;
+	padding: 0.28em 0.75em;
+	margin: 0.18em 0.4em 0 0;
+	border: 1px solid rgba(34, 75, 141, 0.38);
+	border-radius: 999px;
+	background: #ffffff;
+	color: #224b8d;
+	transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+	vertical-align: middle;
+	line-height: 1.35;
+}
+
+.bibtex-btn:hover:not(:disabled) {
+	background: rgba(82, 123, 189, 0.14);
+	border-color: #527bbd;
+}
+
+.bibtex-btn:disabled {
+	cursor: default;
+	opacity: 0.9;
 }
 
 /* Paper / code links as pills */
@@ -799,7 +829,7 @@ table.imgtable, table.imgtable td {
 }
 
 .profile-stats__card {
-	background: #f7f7f8;
+	background: #ffffff;
 	border: 1px solid #e2e3e6;
 	border-radius: 14px;
 	padding: 0.85rem 0.5rem;
@@ -830,8 +860,8 @@ table.imgtable, table.imgtable td {
 .research-tags {
 	margin: 0 0 1.85rem 0;
 	padding: 1.1rem 1.15rem 1.2rem;
-	background: #faf9f7;
-	border: 1px solid #e5e1db;
+	background: #ffffff;
+	border: 1px solid #e2e3e6;
 	border-radius: 14px;
 }
 
