@@ -62,7 +62,7 @@ body {
 }
 
 #layout-content {
-	padding-top: 0;
+	padding-top: 48px;
 	padding-left: 0;
 	padding-right: 0;
 	border: none;
@@ -72,17 +72,51 @@ body {
 	position: relative;
 }
 
-/* Language links (first bar inside #layout-content) */
-#layout-content > div:first-child[style*="absolute"] {
-	font-size: 0.88rem;
-	letter-spacing: 0.02em;
-	line-height: 1.5;
-	padding: 6px 12px !important;
-	border-radius: 2px;
+#layout-content.site-root {
+	margin-top: 20px;
 }
 
-#layout-content > div:first-child[style*="absolute"] a {
-	margin: 0 0.15em;
+/* Segmented language switch — pure CSS, GitHub Pages–friendly */
+.lang-switch {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 999;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 4px;
+	max-width: 100%;
+	box-sizing: border-box;
+	padding: 5px 8px;
+	background: #ffffff;
+	border: 1px solid #e5e5e5;
+	border-radius: 999px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.lang-switch a {
+	font-size: 0.8rem;
+	letter-spacing: 0.04em;
+	padding: 0.4em 0.72em;
+	border-radius: 999px;
+	color: #224b8d;
+	text-decoration: none;
+	transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.lang-switch a:hover {
+	background: rgba(82, 123, 189, 0.12);
+	color: #133a72;
+	text-decoration: none;
+}
+
+.lang-switch a[aria-current="page"] {
+	background: rgba(82, 123, 189, 0.22);
+	color: #022b6d;
+	font-weight: 600;
+	text-decoration: none;
 }
 
 #layout-menu a {
@@ -175,17 +209,24 @@ h1, h2, h3 {
 	padding-bottom: 0.28em;
 	line-height: 1.25;
 	padding-top: 0.45em;
-	border-bottom: 1px solid #aaaaaa;
 }
 
 h1 {
 	font-size: clamp(1.55rem, 1.35rem + 1vw, 1.85rem);
 	padding-bottom: 0.35em;
+	border-bottom: 1px solid #aaaaaa;
 }
 
 h2 {
 	padding-top: 1em;
 	font-size: 1.22rem;
+	border-bottom: none;
+	border-left: 4px solid #527bbd;
+	padding-left: 0.8rem;
+	margin-left: 0;
+	box-shadow: inset 0 -1px 0 #ececec;
+	padding-bottom: 0.42rem;
+	margin-top: 1.5rem;
 }
 
 h2 + h3 {
@@ -406,7 +447,73 @@ table + table {
 	margin-top: 1.35em;
 }
 
-/* Publication rows */
+/* Publication “cards” (tables that contain a .three figure) */
+#layout-content table:has(div.three) {
+	width: 100% !important;
+	border-collapse: separate !important;
+	border-spacing: 0 !important;
+	margin: 0 0 1.35rem 0 !important;
+	background: #ffffff;
+	border: 1px solid #e2e2e2;
+	border-radius: 10px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	overflow: hidden;
+	transition: box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+#layout-content table:has(div.three):hover {
+	box-shadow: 0 6px 22px rgba(82, 123, 189, 0.14);
+	border-color: #c8d4e8;
+}
+
+#layout-content table:has(div.three) tbody tr td {
+	line-height: 1.58;
+	vertical-align: middle !important;
+	padding: 1.2rem 1.35rem !important;
+}
+
+#layout-content table:has(div.three) td:last-child em {
+	display: block;
+	font-size: 0.92rem;
+	color: #333;
+	letter-spacing: 0.02em;
+	margin: 0.15em 0 0.35em 0;
+}
+
+#layout-content table:has(div.three) .three {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 132px;
+}
+
+#layout-content table:has(div.three) .three img {
+	max-height: 130px;
+	width: auto;
+	max-width: 100%;
+	object-fit: contain;
+	border-radius: 6px;
+	vertical-align: middle;
+}
+
+/* Paper / code links as pills */
+#layout-content table:has(div.three) td:last-child a {
+	display: inline-block;
+	font-size: 0.84rem;
+	padding: 0.3em 0.8em;
+	margin: 0.4em 0.45em 0 0;
+	border: 1px solid rgba(34, 75, 141, 0.38);
+	border-radius: 999px;
+	text-decoration: none;
+	transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+#layout-content table:has(div.three) td:last-child a:hover {
+	background: rgba(82, 123, 189, 0.14);
+	border-color: #527bbd;
+	text-decoration: none;
+}
+
 #layout-content table tbody tr td {
 	line-height: 1.55;
 }
@@ -414,15 +521,143 @@ table + table {
 papertitle {
 	display: block;
 	font-weight: 600;
-	font-size: 1.02em;
-	line-height: 1.4;
-	margin: 0 0 0.35em 0;
+	font-size: 1.04em;
+	line-height: 1.38;
+	margin: 0 0 0.4em 0;
 	color: #000;
+	letter-spacing: 0.01em;
 }
 
-#layout-content table img {
-	border-radius: 2px;
+/* Hero / profile strip */
+table.site-hero {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 0 0 0.5rem 0;
+	padding: 1.35rem 1.35rem 1.5rem;
+	background: linear-gradient(180deg, #fafbfd 0%, #ffffff 55%);
+	border: 1px solid #e8e8e8;
+	border-radius: 12px;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+table.site-hero td {
+	vertical-align: top;
+	border: none;
+}
+
+table.site-hero #toptitle h1 {
+	font-size: clamp(1.75rem, 1.4rem + 1.2vw, 2.1rem);
+	letter-spacing: 0.02em;
+	margin-top: 0.15em;
+	color: #527bbd;
+}
+
+table.site-hero h3 {
+	color: #444;
+	font-weight: 600;
+	margin-top: 0.35rem;
+	margin-bottom: 0.5rem;
+}
+
+table.site-hero td:first-child a {
+	display: inline-block;
+	font-size: 0.88rem;
+	padding: 0.32em 0.75em;
+	margin: 0 0.35em 0.35em 0;
+	border: 1px solid rgba(34, 75, 141, 0.35);
+	border-radius: 999px;
+	text-decoration: none;
+	transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+table.site-hero td:first-child a:hover {
+	background: rgba(82, 123, 189, 0.12);
+	border-color: #527bbd;
+	text-decoration: none;
+}
+
+table.site-hero img {
+	border-radius: 10px;
+	box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+	display: block;
+	margin-left: auto;
+}
+
+/* Footer widgets: lower visual noise */
+.site-meta {
+	margin-top: 3rem;
+	padding-top: 1.35rem;
+	border-top: 1px solid #e8e8e8;
+	opacity: 0.78;
+}
+
+.site-meta p {
+	margin-bottom: 0.65em;
+}
+
+.site-meta img {
+	opacity: 0.88;
 	vertical-align: middle;
+}
+
+.site-meta a {
+	text-decoration: none;
+}
+
+.site-meta a:hover {
+	text-decoration: underline;
+	text-underline-offset: 0.15em;
+}
+
+@media (max-width: 720px) {
+	.lang-switch {
+		position: relative;
+		top: auto;
+		right: auto;
+		justify-content: center;
+		margin: 0 auto 1rem auto;
+		max-width: fit-content;
+	}
+
+	#layout-content {
+		padding-top: 12px;
+	}
+
+	table.site-hero,
+	table.site-hero tbody,
+	table.site-hero tr {
+		display: block;
+		width: 100% !important;
+	}
+
+	table.site-hero td {
+		display: block;
+		width: 100% !important;
+	}
+
+	table.site-hero img {
+		margin: 1rem auto 0;
+		max-width: min(240px, 100%);
+		height: auto;
+	}
+
+	#layout-content table:has(div.three),
+	#layout-content table:has(div.three) tbody,
+	#layout-content table:has(div.three) tr {
+		display: block;
+		width: 100% !important;
+	}
+
+	#layout-content table:has(div.three) td {
+		display: block;
+		width: 100% !important;
+		text-align: center !important;
+	}
+
+	#layout-content table:has(div.three) td:last-child {
+		text-align: left !important;
+	}
 }
 
 tr.heading {
