@@ -484,6 +484,29 @@ table + table {
 	line-height: 1.22;
 }
 
+/* Paper title as main PDF/venue link — not the pill style used for Code / Dataset */
+#layout-content table:has(div.three) td:last-child papertitle a {
+	display: inline;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	padding: 0;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	color: #1a1a1a;
+	text-decoration: none;
+	border-bottom: 1px solid rgba(82, 123, 189, 0.35);
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+#layout-content table:has(div.three) td:last-child papertitle a:hover {
+	background: none;
+	border-bottom-color: #527bbd;
+	color: #224b8d;
+	text-decoration: none;
+}
+
 /* Venue line: keep inline with following text so no forced line break after </em> */
 #layout-content table:has(div.three) td:last-child em {
 	display: inline;
