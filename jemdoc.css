@@ -541,6 +541,51 @@ papertitle {
 	letter-spacing: 0.01em;
 }
 
+/* Publication badges: IF, preprint, workshop (pill labels) */
+.pub-label {
+	display: inline-block;
+	margin-left: 0.45rem;
+	padding: 0.12em 0.55em 0.14em;
+	border-radius: 999px;
+	font-size: 0.78em;
+	font-weight: 600;
+	line-height: 1.35;
+	letter-spacing: 0.02em;
+	font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	vertical-align: 0.1em;
+	white-space: nowrap;
+}
+
+#layout-content table:has(div.three) td:last-child .pub-label {
+	margin-left: 0.4rem;
+	vertical-align: 0.06em;
+}
+
+.pub-label--if {
+	background: #eaf1e4;
+	color: #3d5c32;
+}
+
+.pub-label--preprint {
+	background: #fff0e5;
+	color: #a54a12;
+}
+
+.pub-label--miccai-ws {
+	background: #e8eef9;
+	color: #2f4f8a;
+}
+
+.pub-label--cvpr-ws {
+	background: #eee8f5;
+	color: #4f3d7a;
+}
+
+.pub-label--workshop {
+	background: #e8f2f3;
+	color: #25606b;
+}
+
 /* Hero / profile strip */
 table.site-hero {
 	width: 100%;
@@ -704,7 +749,7 @@ table.imgtable, table.imgtable td {
 	}
 }
 
-/* —— Profile: stats under name (hero) + keyword cloud (after About) —— */
+/* —— Profile: stats above research keywords + keyword cloud —— */
 .section-subtitle {
 	font-size: 1.05rem;
 	font-weight: 600;
@@ -717,28 +762,28 @@ table.imgtable, table.imgtable td {
 	line-height: 1.25;
 }
 
+/* Tighter gap when subtitle follows the stats strip */
+.profile-stats + .section-subtitle {
+	margin-top: 0.85rem;
+}
+
 .profile-stats {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 0.55rem;
-	margin: 0;
-	max-width: 100%;
-}
-
-/* Stats row directly below the name — warm cards, theme blue numbers */
-.profile-stats--hero {
-	margin: 0.55rem 0 1rem 0;
+	margin: 0.25rem 0 0.15rem 0;
 	max-width: 520px;
 }
 
 .profile-stats__card {
-	background: #f4f1eb;
-	border: 1px solid #e8e2d8;
+	background: #f7f7f8;
+	border: 1px solid #e2e3e6;
 	border-radius: 14px;
 	padding: 0.85rem 0.5rem;
 	text-align: center;
 }
 
+/* Same blue as site-hero name: table.site-hero #toptitle h1 */
 .profile-stats__value {
 	display: block;
 	font-size: clamp(1.45rem, 1.1rem + 1.1vw, 1.85rem);
@@ -831,20 +876,20 @@ table.imgtable, table.imgtable td {
 }
 
 @media (max-width: 520px) {
-	.profile-stats--hero {
+	.profile-stats {
 		max-width: 100%;
 		gap: 0.4rem;
 	}
 
-	.profile-stats--hero .profile-stats__card {
+	.profile-stats .profile-stats__card {
 		padding: 0.65rem 0.35rem;
 	}
 
-	.profile-stats--hero .profile-stats__value {
+	.profile-stats .profile-stats__value {
 		font-size: 1.35rem;
 	}
 
-	.profile-stats--hero .profile-stats__label {
+	.profile-stats .profile-stats__label {
 		font-size: 0.68rem;
 	}
 }
