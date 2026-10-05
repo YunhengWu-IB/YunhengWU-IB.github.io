@@ -303,6 +303,41 @@ ul {
 	list-style-type: square;
 }
 
+/* Institution / company logos as bullets in Education & Experience */
+ul.cv-list {
+	list-style: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+ul.cv-list li {
+	list-style: none;
+	padding-left: 0;
+}
+
+.cv-logo {
+	display: inline-block;
+	height: 22px;
+	width: auto;
+	max-width: 64px;
+	object-fit: contain;
+	vertical-align: -0.3em;
+	margin-right: 0.45em;
+}
+
+.cv-logo-set {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	margin-right: 0.45em;
+	vertical-align: middle;
+}
+
+.cv-logo-set .cv-logo {
+	margin-right: 0;
+	max-width: 52px;
+}
+
 p + ul, p + ol {
 	margin-top: -0.35em;
 }
