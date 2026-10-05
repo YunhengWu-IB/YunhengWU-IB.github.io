@@ -303,7 +303,7 @@ ul {
 	list-style-type: square;
 }
 
-/* Institution / company logos as list bullets in Education & Experience */
+/* Education / Experience: publication-like two-column row, smaller logos */
 ul.cv-list {
 	list-style: none;
 	padding-left: 0;
@@ -312,37 +312,60 @@ ul.cv-list {
 
 ul.cv-list li {
 	list-style: none;
-	position: relative;
-	padding-left: 28px; /* 20px logo + gap */
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	margin-top: 1.25em;
+	margin-bottom: 0.7em;
+	padding: 0;
+	line-height: 1.55;
 }
 
-ul.cv-list li:has(> .cv-logo-set) {
-	padding-left: 50px; /* two logos side by side */
+ul.cv-list li:first-child {
+	margin-top: 0.4em;
 }
 
-ul.cv-list li > .cv-logo,
-ul.cv-list li > .cv-logo-set {
-	position: absolute;
-	left: 0;
-	top: 0.2em;
-	margin: 0;
+.cv-media {
+	flex: 0 0 52px;
+	width: 52px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	padding-top: 2px;
+	box-sizing: border-box;
+}
+
+.cv-media--pair {
+	flex: 0 0 108px;
+	width: 108px;
+	justify-content: flex-start;
+	gap: 4px;
 }
 
 .cv-logo {
+	width: 48px;
+	height: auto;
+	max-width: 100%;
 	display: block;
-	width: 20px;
-	height: 20px;
 	object-fit: contain;
+	margin: 0;
 }
 
 .cv-logo-set {
-	display: inline-flex;
-	align-items: center;
-	gap: 3px;
+	display: flex;
+	align-items: flex-start;
+	gap: 4px;
 }
 
 .cv-logo-set .cv-logo {
-	position: static;
+	width: 48px;
+	flex: 0 0 48px;
+}
+
+.cv-body {
+	flex: 1 1 auto;
+	min-width: 0;
+	padding-top: 1px;
 }
 
 p + ul, p + ol {
