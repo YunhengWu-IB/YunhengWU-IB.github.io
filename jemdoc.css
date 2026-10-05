@@ -336,10 +336,9 @@ ul.cv-list li:first-child {
 }
 
 .cv-media--pair {
-	flex: 0 0 108px;
-	width: 108px;
-	justify-content: flex-start;
-	gap: 4px;
+	flex: 0 0 52px;
+	width: 52px;
+	justify-content: center;
 }
 
 .cv-logo {
@@ -353,13 +352,13 @@ ul.cv-list li:first-child {
 
 .cv-logo-set {
 	display: flex;
-	align-items: flex-start;
+	flex-direction: column;
+	align-items: center;
 	gap: 4px;
 }
 
 .cv-logo-set .cv-logo {
 	width: 48px;
-	flex: 0 0 48px;
 }
 
 .cv-body {
